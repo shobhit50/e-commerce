@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connect();
 const port = 3000;
 app.use("/user", require("./route/user"));
-app.use("product", require("./route/product"));
+app.use("/product", require("./route/product"));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
