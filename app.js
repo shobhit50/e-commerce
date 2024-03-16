@@ -1,24 +1,17 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const bodyParser = require("body-parser");
-const connect = require("./config/config");
-
+const bodyParser = require('body-parser');
+const connect = require('./config/config');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-
 connect();
-const port = 3000;
-app.use("/user", require("./route/user"));
-app.use("/product", require("./route/product"));
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
+const port = 3000;
+
+app.use('/', require('./route/index'));
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+	console.log(`Server listening on port ${port}`);
 });

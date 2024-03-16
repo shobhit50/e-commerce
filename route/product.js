@@ -1,17 +1,18 @@
 const routes = require('express').Router();
-const { Product, ProductCategory } = require('../model/product');
-const User = require('../model/user');
-const { createProduct, getProducts, updateProduct, deleteProduct } = require('../controller/productController');
+const {
+	createProduct,
+	getProduct,
+	updateProduct,
+	deleteProduct,
+} = require('../controller/productController');
 
+// CREATE PRODUCT
 routes.post('/', createProduct);
-
-routes.get('/:id', getProducts);
-
-// update route
+// GET PRODUCT
+routes.get('/:id', getProduct);
+// UPDATE PRODUCT
 routes.patch('/:id', updateProduct);
-
-// delete route
-
+// DELETE PRODUCT
 routes.delete('/:id', deleteProduct);
 
 module.exports = routes;
