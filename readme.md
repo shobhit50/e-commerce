@@ -15,7 +15,7 @@
 - [ ] `DELETE /users/address/:addressId`: Delete an address (requires auth).
 
 ### Products
-- [ ] `GET /products`: Retrieve a list of products for the listing page.
+- [x] `GET /products`: Retrieve a list of products for the listing page.
 - [x] `GET /products/:id`: Retrieve a specific product's information for the product info page.
 
 ### Cart
@@ -46,6 +46,6 @@
 
 ### List Product (for admin or seller)
 - [x] `POST /products`: Add a new product to the listing (requires admin/seller auth).
-- [ ] `GET /products`: List all products (can be public or admin/seller specific).
+- [x] `GET /products`: List all products (can be public or admin/seller specific).
 - [x] `PUT /products/:id`: Update a specific product's details (requires admin/seller auth).
 - [x] `DELETE /products/:id`: Delete a product from the listing (requires admin/seller auth).
