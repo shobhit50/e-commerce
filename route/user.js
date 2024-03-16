@@ -1,22 +1,7 @@
 const routes = require("express").Router();
 const User = require("../model/user");
+const { createUser } = require("../controller/userController");
 
-routes.post("/new-user", async (req, res) => {
-    const { username, password, email, isSuperAdmin, isClient, address } = req.body;
-    try {
-        const user = new User({
-            username,
-            password,
-            email,
-            isSuperAdmin,
-            isClient,
-            address
-        });
-        const savedUser = await user.save();
-        res.json(savedUser);
-    } catch (error) {
-        res.json({ message: error });
-    }
-});
+routes.post("/new-user", createUser);
 
 module.exports = routes;
