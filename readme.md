@@ -3,7 +3,7 @@
 ## User Functionality
 
 ### Authentication
-- [ ] `POST /users/register`: Register a new user.
+- [x] `POST /users/register`: Register a new user.
 - [ ] `POST /users/login`: Authenticate a user and return a token.
 - [ ] `GET /users/profile`: Get the user's profile (requires auth).
 - [ ] `PUT /users/profile`: Update the user's profile (requires auth).
@@ -16,7 +16,7 @@
 
 ### Products
 - [ ] `GET /products`: Retrieve a list of products for the listing page.
-- [ ] `GET /products/:id`: Retrieve a specific product's information for the product info page.
+- [x] `GET /products/:id`: Retrieve a specific product's information for the product info page.
 
 ### Cart
 - [ ] `POST /cart`: Add an item to the cart (requires auth).
@@ -45,7 +45,7 @@
 ## Client Functionality
 
 ### List Product (for admin or seller)
-- [ ] `POST /products`: Add a new product to the listing (requires admin/seller auth).
+- [x] `POST /products`: Add a new product to the listing (requires admin/seller auth).
 - [ ] `GET /products`: List all products (can be public or admin/seller specific).
-- [ ] `PUT /products/:id`: Update a specific product's details (requires admin/seller auth).
-- [ ] `DELETE /products/:id`: Delete a product from the listing (requires admin/seller auth).
+- [x] `PUT /products/:id`: Update a specific product's details (requires admin/seller auth).
+- [x] `DELETE /products/:id`: Delete a product from the listing (requires admin/seller auth).
