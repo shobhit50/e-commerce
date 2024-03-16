@@ -1,5 +1,6 @@
 const { Product, ProductCategory } = require('../model/product');
 const User = require('../model/user');
+const { ListingDTO } = require('../dto/listingDTO');
 
 // CREATE PRODUCT
 exports.createProduct = async (req, res) => {
@@ -62,24 +63,27 @@ exports.deleteProduct = async (req, res) => {
 exports.listProducts = async (req, res) => {
 	const { clientId, limit, offset } = req.query;
 	try {
-		console.log("inside fn 1")
-		console.log(`clientId 1 ${clientId}`)
+		let query = {};
 		if (clientId) {
 			// CLIENT LISTING
-			console.log(`clientId 2 ${clientId}`)
-			query.owner = { clientId };
+			query.owner = clientId;
 		}
-		console.log("inside fn 2")
 
-		// const allProducts = await Product.find(query)
-		// 	.skip(Number(offset))
-		// 	.limit(Number(limit));
+		const totalCount = await Product.countDocuments(query);
 
-		const allProducts = await Product.find();
+		const allProducts = await Product.find(query)
+			.skip(Number(offset))
+			.limit(Number(limit));
 
-		console.log(allProducts);
+		console.log('ALL PRODUCTS');
+		console.log(typeof allProducts);
+		console.log('RESULT');
+		const result = Array.isArray(result) ? result : [allProducts];
+		console.log(typeof result);
 
-		res.json(allProducts);
+		const response = formatProductListResponse(allProducts, totalCount);
+
+		res.json(response);
 	} catch (error) {
 		res.json({ message: error });
 	}
