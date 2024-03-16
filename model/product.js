@@ -1,36 +1,44 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-    name: String,
-    description: String,
-    image: {
-        url: String,
-        filename: String,
-    },
-    price: Number,
-    productCategory: {
-        type: Schema.Types.ObjectId,
-        ref: "ProductCategory",
-        default: 'other'    // temporary value,  after creating category it will be updated  
-    },
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-    },
+	name: String,
+	description: String,
+	image: {
+		url: String,
+		filename: String,
+	},
+	price: Number,
+	productCategory: {
+		type: Schema.Types.ObjectId,
+		ref: 'ProductCategory',
+		default: 'other', // temporary value,  after creating category it will be updated
+	},
+	// future - client
+	owner: {
+		type: Schema.Types.ObjectId,
+		ref: 'User',
+	},
 });
 
 const productCategorySchema = new Schema({
-    name: String,
-    description: String,
-    image: {
-        url: String,
-        filename: String,
-    },
+	name: String,
+	description: String,
+	image: {
+		url: String,
+		filename: String,
+	},
+	parentCategory: {
+		type: Schema.Types.ObjectId,
+		ref: 'ProductCategory',
+		default: null, // for top-level categories, this can be null
+	},
 });
 
-
-const Product = mongoose.model("Product", productSchema);
-const ProductCategory = mongoose.model("ProductCategory", productCategorySchema);
+const Product = mongoose.model('Product', productSchema);
+const ProductCategory = mongoose.model(
+	'ProductCategory',
+	productCategorySchema
+);
 
 module.exports = { Product, ProductCategory };
