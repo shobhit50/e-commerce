@@ -64,22 +64,15 @@ exports.listProducts = async (req, res) => {
 	const { clientId, limit, offset } = req.query;
 	try {
 		let query = {};
+
 		if (clientId) {
-			// CLIENT LISTING
 			query.owner = clientId;
 		}
-
+		
 		const totalCount = await Product.countDocuments(query);
-
 		const allProducts = await Product.find(query)
 			.skip(Number(offset))
 			.limit(Number(limit));
-
-		console.log('ALL PRODUCTS');
-		console.log(typeof allProducts);
-		console.log('RESULT');
-		const result = Array.isArray(allProducts) ? allProducts : [allProducts];
-		console.log(typeof result);
 
 		const response = formatProductListResponse(allProducts, totalCount);
 
