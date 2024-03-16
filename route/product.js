@@ -4,8 +4,11 @@ const {
 	getProduct,
 	updateProduct,
 	deleteProduct,
+	listProducts,
 } = require('../controller/productController');
 
+// LIST PRODUCT
+routes.get('/list', listProducts);
 // CREATE PRODUCT
 routes.post('/', createProduct);
 // GET PRODUCT
