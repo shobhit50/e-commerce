@@ -1,6 +1,6 @@
 const { Product, ProductCategory } = require('../model/product');
 const User = require('../model/user');
-const { ListingDTO } = require('../dto/listingDTO');
+const { formatProductListResponse } = require('../dto/listingDTO');
 
 // CREATE PRODUCT
 exports.createProduct = async (req, res) => {
@@ -78,7 +78,7 @@ exports.listProducts = async (req, res) => {
 		console.log('ALL PRODUCTS');
 		console.log(typeof allProducts);
 		console.log('RESULT');
-		const result = Array.isArray(result) ? result : [allProducts];
+		const result = Array.isArray(allProducts) ? allProducts : [allProducts];
 		console.log(typeof result);
 
 		const response = formatProductListResponse(allProducts, totalCount);
