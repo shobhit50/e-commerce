@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/e-commerce');
-        console.log('Connected to MongoDB');
+        const uri = "mongodb+srv://shobhit:uXw9CSZfLVwBnEwj@cluster0.snn3wbn.mongodb.net/e-commerce?retryWrites=true&w=majority";
+        await mongoose.connect(uri);
+
+        console.log('Connected to MongoDB Atlas');
     } catch (err) {
         console.error('Could not connect to MongoDB...', err);
     }
