@@ -9,10 +9,10 @@
 - [ ] `PUT /users/profile`: Update the user's profile (requires auth).
 
 ### User Address Management
-- [ ] `POST /users/address`: Add a new address (requires auth).
-- [ ] `GET /users/address`: List user's addresses (requires auth).
-- [ ] `PUT /users/address/:addressId`: Update an address (requires auth).
-- [ ] `DELETE /users/address/:addressId`: Delete an address (requires auth).
+- [x] `POST /users/address`: Add a new address (requires auth).
+- [x] `GET /users/address`: List user's addresses (requires auth).
+- [x] `PUT /users/address/:addressId`: Update an address (requires auth).
+- [x] `DELETE /users/address/:addressId`: Delete an address (requires auth).
 
 ### Products
 - [x] `GET /products`: Retrieve a list of products for the listing page.
