@@ -22,11 +22,6 @@ const productSchema = new Schema({
 	status: String,
 });
 
-
 const Product = mongoose.model('Product', productSchema);
-const ProductCategory = mongoose.model(
-	'ProductCategory',
-	productCategorySchema
-);
 
-module.exports = { Product, ProductCategory };
+module.exports = { Product };

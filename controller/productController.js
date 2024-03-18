@@ -6,6 +6,8 @@ const { formatProductListResponse } = require('../dto/listingDTO');
 exports.createProduct = async (req, res) => {
 	// const user = req.user._id;
 	// const owner = User.findById(user);
+	console.log(`Request to create product received. Data: ${JSON.stringify(req.body)}`);
+
 	const { name, description, price, productCategory, owner } = req.body;
 	try {
 		const product = new Product({
@@ -16,6 +18,8 @@ exports.createProduct = async (req, res) => {
 			owner, // here should be the user object id
 		});
 		const savedProduct = await product.save();
+		console.log(`Product saved successfully: ${JSON.stringify(savedProduct)}`);
+
 		res.json(savedProduct);
 	} catch (error) {
 		res.json({ message: error });
@@ -68,7 +72,7 @@ exports.listProducts = async (req, res) => {
 		if (clientId) {
 			query.owner = clientId;
 		}
-		
+
 		const totalCount = await Product.countDocuments(query);
 		const allProducts = await Product.find(query)
 			.skip(Number(offset))

@@ -19,79 +19,69 @@ exports.createUser = async (req, res) => {
 	}
 };
 
-
-
 // get profile
 
-exports.getProfile = async
+// exports.getProfile = async;
 
 // get user address
 exports.listAddress = async (req, res) => {
 	try {
-		const { userid } = req.body
-		console.log(userid)
-		const user = await User.findById(userid)
+		const { userid } = req.body;
+		console.log(userid);
+		const user = await User.findById(userid);
 		res.json(user.address);
 	} catch (error) {
-		console.log(error)
-
+		console.log(error);
 	}
-}
+};
 
-
-// POST add new address 
+// POST add new address
 exports.createAddress = async (req, res) => {
 	try {
-		const { userid } = req.body
-		console.log(userid)
-		const user = await User.findById(userid)
+		const { userid } = req.body;
+		console.log(userid);
+		const user = await User.findById(userid);
 		data = {
-			street: "agra road",
-			city: "Aligarh",
-			state: "up",
-			zip: "20201",
-			country: "india",
-		}
-		user.address.push(data)
-		user.save()
+			street: 'agra road',
+			city: 'Aligarh',
+			state: 'up',
+			zip: '20201',
+			country: 'india',
+		};
+		user.address.push(data);
+		user.save();
 		res.json(user);
-
 	} catch (error) {
-		console.log(error)
-
+		console.log(error);
 	}
-}
+};
 
-
-// PUT update adress by id 
+// PUT update adress by id
 exports.updateAddress = async (req, res) => {
 	try {
 		const { userid, addressid, newaddress } = req.body;
 
 		const user = await User.findById(userid);
 		for (let address of user.address) {
-
 			if (address._id.toString() === addressid) {
-				console.log(address)
+				console.log(address);
 				address.street = newaddress.street;
 				address.city = newaddress.city;
 				address.state = newaddress.state;
 				address.zip = newaddress.zip;
 				address.country = newaddress.country;
 
-				console.log(address)
+				console.log(address);
 			}
-
 		}
 
 		await user.save();
-	}
-	catch (error) {
+	} catch (error) {
 		console.log(error);
 	}
 };
 
-// DELETE Adress by id 
+// DELETE Adress by id
 exports.deleteAddress = async (req, res) => {
 	try {
 		const { userid, addressid } = req.body;
@@ -102,12 +92,12 @@ exports.deleteAddress = async (req, res) => {
 		);
 
 		if (!user) {
-			return res.status(404).json({ message: "User not found" });
+			return res.status(404).json({ message: 'User not found' });
 		}
 
 		res.json(user);
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({ message: "Server error" });
+		res.status(500).json({ message: 'Server error' });
 	}
 };

@@ -10,7 +10,7 @@ const {
 
 routes.post('/register', createUser);
 
-routes.get('/profile', getProfile); // profile
+// routes.get('/profile', getProfile); // profile
 routes.get('/profile');
 
 // address
