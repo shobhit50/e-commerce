@@ -47,6 +47,16 @@ exports.updateProduct = async (req, res) => {
 		updatedProduct.owner = req.body.owner;
 		const savedProduct = await updatedProduct.save();
 
+
+
+
+
+
+
+
+
+		
+
 		res.json(savedProduct);
 	} catch (error) {
 		res.json({ message: error });
