@@ -23,10 +23,10 @@ exports.createUser = async (req, res) => {
 
 // get profile
 
-exports.getprofile = async
+exports.getProfile = async
 
 // get user address
-exports.listaddress = async (req, res) => {
+exports.listAddress = async (req, res) => {
 	try {
 		const { userid } = req.body
 		console.log(userid)
@@ -40,7 +40,7 @@ exports.listaddress = async (req, res) => {
 
 
 // POST add new address 
-exports.useraddress = async (req, res) => {
+exports.createAddress = async (req, res) => {
 	try {
 		const { userid } = req.body
 		console.log(userid)
@@ -64,7 +64,7 @@ exports.useraddress = async (req, res) => {
 
 
 // PUT update adress by id 
-exports.updateaddress = async (req, res) => {
+exports.updateAddress = async (req, res) => {
 	try {
 		const { userid, addressid, newaddress } = req.body;
 
@@ -92,7 +92,7 @@ exports.updateaddress = async (req, res) => {
 };
 
 // DELETE Adress by id 
-exports.deleteaddress = async (req, res) => {
+exports.deleteAddress = async (req, res) => {
 	try {
 		const { userid, addressid } = req.body;
 		const user = await User.findByIdAndUpdate(
