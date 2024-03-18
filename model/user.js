@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-	username: {
+	email: {
 		type: String,
 		required: true,
 		unique: true,
@@ -11,28 +11,34 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	email: {
+	fullName: {
 		type: String,
 		required: true,
-		unique: true,
 	},
-	isSuperAdmin: {
-		type: Boolean,
-		default: false,
+	role: {
+		type: String,
 	},
-	isClient: {
-		type: Boolean,
-		default: false,
+	status: {
+		type: String,
 	},
 	address: [
 		{
-			street: String,
+			fullAddress: String,
 			city: String,
 			state: String,
 			zip: String,
 			country: String,
+			phoneNumber: Number,
+			defaultAddress: Boolean
 		},
 	],
 });
 
 module.exports = mongoose.model('User', userSchema);
+
+/*
+
+remove username 
+
+
+*/

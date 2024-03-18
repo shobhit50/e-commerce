@@ -4,11 +4,16 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
 	products: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: 'Product',
+			productId: {
+				type: Schema.Types.ObjectId,
+				ref: 'Product',
+			},
+			price: Number,
+			quantity: Number,
+			totalAmount: Number,
 		},
 	],
-	owner: {
+	userId: {
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
@@ -17,6 +22,10 @@ const orderSchema = new Schema({
 		type: String,
 		default: 'Pending',
 	},
+	paymentStatus: String,
+	paymentType: String,
+	paymentTransactionId: String,
+	//todo - shippingAddress
 });
 
 module.exports = mongoose.model('Order', orderSchema);

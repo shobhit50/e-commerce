@@ -9,31 +9,19 @@ const productSchema = new Schema({
 		filename: String,
 	},
 	price: Number,
+	quantity: Number,
 	productCategory: {
 		type: Schema.Types.ObjectId,
 		ref: 'ProductCategory',
 		default: 'other', // temporary value,  after creating category it will be updated
 	},
-	// future - client
 	owner: {
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
+	status: String,
 });
 
-const productCategorySchema = new Schema({
-	name: String,
-	description: String,
-	image: {
-		url: String,
-		filename: String,
-	},
-	parentCategory: {
-		type: Schema.Types.ObjectId,
-		ref: 'ProductCategory',
-		default: null, // for top-level categories, this can be null
-	},
-});
 
 const Product = mongoose.model('Product', productSchema);
 const ProductCategory = mongoose.model(
