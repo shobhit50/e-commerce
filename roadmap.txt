@@ -1,0 +1,41 @@
+Features
+
+CRUD Product
+CRUD User
+CRUD Order
+CRUD Cart
+CRUD Wishlist
+CRUD Reviews
+CRUD User Address
+Predefined Categories
+User & Client Product Listing
+Listing Pagination Support
+Listing Sorting Support
+Listing Filter Support
+
+--------------------------------------------------
+
+Payment Support
+ONDC Integration
+
+--------------------------------------------------
+UI Features - User
+
+Home Page
+Product Page
+Product Listing Page
+Order History Page
+Cart Page
+Wishlist Page
+User Profile Page (CRUD User Address)
+
+--------------------------------------------------
+UI Features - Client
+Dashboard Page
+Listed Products Page by Client
+Insight Page of Each Product (ACTIVE/INACTIVE PRODUCT)
+
+---------------------------------------------------
+
+UI Features - Super Admin
+1. Permission based features - Wishlist
